@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "tmp.py", line 196, in <module>
+    Game.run()
+  File "/home/trystiit/public_html/utictactoe/game.py", line 24, in run
+    move = self.State.nextMove(player,True) 
+  File "/home/trystiit/public_html/utictactoe/game.py", line 83, in nextMove
+    move = Player.getMove(deepcopy(self.StateRepresentation),deepcopy(self.PlayerList))
+  File "tmp.py", line 131, in getMove
+    self.winnerlist = self.updatewinnerlist(State,PlayerList, self.winnerlist)
+AttributeError: 'AIPlayer' object has no attribute 'updatewinnerlist'

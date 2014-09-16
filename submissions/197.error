@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "tmp.py", line 87, in <module>
+    Game.run()
+  File "/home/trystiit/public_html/utictactoe/game.py", line 38, in run
+    raise Error("You made a lot of invalid moves.")
+game.Error

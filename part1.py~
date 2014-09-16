@@ -1,0 +1,40 @@
+import tictactoe as utic
+import game
+import argparse
+import copy
+from timeout import timeout,timer
+# apt-get install python-mysqldb for this module
+import MySQLdb
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--id",help="ID of player.")
+args = parser.parse_args()
+
+## I'm assuming a table Id(int),IfWon(bool),Moves(string),Result(string),Score(int)
+db = MySQLdb.connect(host="localhost",user="root",passwd="dafadafa",db="uttt")
+cursor = db.cursor()
+
+timeP2 = [300,0]
+
+# Returns true if Player has won the smaller Tic-Tac-Toe board at I,J.
+def ifSmallWin(State,I,J,Player):
+	def orfunc(x,y):	return x or y
+	def andfunc(x,y):	return x and y
+	horizontalwin = reduce(orfunc, [True if reduce(andfunc,[True if State[0][I][J][i][j]==Player else False for j in xrange(3)]) else False for i in xrange(3)])
+	verticalwin = reduce(orfunc, [True if reduce(andfunc,[True if State[0][I][J][j][i]==Player else False for j in xrange(3)]) else False for i in xrange(3)])
+	diagonal1win = reduce(andfunc, [ True if State[0][I][J][i][i]==Player else False for i in xrange(3)])
+	diagonal2win = reduce(andfunc, [ True if State[0][I][J][2-i][i]==Player else False for i in xrange(3)])
+	return horizontalwin or diagonal1win or verticalwin or diagonal2win
+
+
+# Returns true if there exists empty positions on the smaller board at I,J.
+def checkEmpty(State,I,J):
+	return reduce((lambda x,y : x or y), [True if (State[0][I][J][i][j]==None) else False for i in xrange(3) for j in xrange(3)])
+
+
+class AIPlayer(game.Player):
+	def __init__(self,id):
+		super(AIPlayer, self).__init__(id)
+
+	@timeout(timeP2)

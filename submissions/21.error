@@ -1,0 +1,4 @@
+  File "tmp.py", line 306
+    if __name__ == '__main__' :
+                              ^
+IndentationError: unindent does not match any outer indentation level

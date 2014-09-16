@@ -1,4 +1,9 @@
-Ultimate-Tic-Tac-Toe
-====================
+Created by Codrops
 
-The famous mind boggling Ultimate Tic Tac Toe game on Web.
+http://www.codrops.com
+
+Integrate or build upon it for free in your personal or commercial projects. Don't republish, redistribute or sell "as-is". 
+
+Read more here: http://tympanus.net/codrops/licensing/
+
+
