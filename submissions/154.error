@@ -1,4 +1,0 @@
-  File "tmp.py", line 54
-    def getMove(1,2)
-                ^
-SyntaxError: invalid syntax

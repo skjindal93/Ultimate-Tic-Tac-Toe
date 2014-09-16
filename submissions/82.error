@@ -1,4 +1,0 @@
-  File "tmp.py", line 57
-    if __name__ == '__main__' :
-    ^
-IndentationError: unexpected unindent

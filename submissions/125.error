@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "tmp.py", line 113, in <module>
-    if Game.State.winner.id == 2:
-AttributeError: 'NoneType' object has no attribute 'id'

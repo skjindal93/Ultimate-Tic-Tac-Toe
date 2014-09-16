@@ -1,1 +1,0 @@
-def getMove(1,2)
